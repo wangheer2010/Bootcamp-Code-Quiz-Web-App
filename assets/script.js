@@ -1,5 +1,5 @@
 //set the original time to take
-var t = 10;
+var t = 300;
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const timeRemainingText = document.getElementById('time-remaining');
