@@ -12,12 +12,14 @@ Create a timed quiz on JavaScript fundamentals that stores high scores
 1. Change the color for the answer selected based on it's correctness
 1. Create an ending page where you can see and save your scores
 1. Create a head's up display, with a timer and scorer
-
+1. Create the function to save the highest scores
+1. Create a view to display the high scores
 
 ## Screenshot of the Deployed App
 
 ## Link to the Deployed App
 
+
 ## References
 
-[James Q Quick](https://www.youtube.com/watch?v=rFWbAj40JrQ&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx&index=2)
+[James Q Quick](https://www.youtube.com/watch?v=DFhmNLKwwGw&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx&index=9)
