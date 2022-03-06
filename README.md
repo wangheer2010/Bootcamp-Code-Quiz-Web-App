@@ -9,6 +9,7 @@ Create a timed quiz on JavaScript fundamentals that stores high scores
 1. Create a home page and style it
 1. Create a question page and style it 
 1. Display hard-coded questions
+1. Change the color for the answer selected based on it's correctness
 
 ## Screenshot of the Deployed App
 

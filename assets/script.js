@@ -86,8 +86,19 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
-        console.log(selectedAnswer);
-        getNewQuestion();
+        // create a correct class and incorrect class
+        let classToApply = "incorrect";
+        if (selectedAnswer == currentQuestion.answer) {
+            classToApply = 'correct';
+        } else {
+            classToApply = "incorrect";
+        }
+        // apply the color according to the answer for 1000 ms before moving to next question
+        selectedChoice.parentElement.classList.add(classToApply);
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        },1000);
     });
 });
 startGame();
