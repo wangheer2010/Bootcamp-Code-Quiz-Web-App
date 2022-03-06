@@ -1,5 +1,5 @@
 const question = document.getElementById('question');
-const choices = Array.from(document.getElementByClassName("choice-text"));
+const choices = Array.from(document.getElementsByClassName("choice-text"));
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -15,7 +15,6 @@ let questions = [
         choice3:"alerts",
         choice4:"numbers",
         answer:3
-
     },
     {
         question:"The condition in an if/else statement is enclosed with ____",
@@ -58,10 +57,10 @@ const MAX_QUESTIONS = 5;
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...Questions];
+    availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion();
-}
+};
 
 getNewQuestion = () => {
     if (availableQuestions===0 || questionCounter>= MAX_QUESTIONS) {
@@ -86,9 +85,9 @@ choices.forEach(choice => {
         if (!acceptingAnswers) return;
         acceptingAnswers = false;
         const selectedChoice = e.target;
-        const selectedChoice = selectedChoice.dataset["number"];
+        const selectedAnswer = selectedChoice.dataset["number"];
         console.log(selectedAnswer);
         getNewQuestion();
     });
-})
+});
 startGame();
