@@ -14,6 +14,7 @@ Create a timed quiz on JavaScript fundamentals that stores high scores
 1. Create a head's up display, with a timer and scorer
 1. Create the function to save the highest scores
 1. Create a view to display the high scores
+1. Create a remove function to remove the local storage of the highest scores
 
 ## Screenshot of the Deployed App
 
