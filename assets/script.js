@@ -1,5 +1,9 @@
+//set the original time to take
+var t = 1000;
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const timeRemainingText = document.getElementById('time-remaining');
+const scoreText = document.getElementById('score');
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -59,11 +63,25 @@ startGame = () => {
     score = 0;
     availableQuestions = [...questions];
     console.log(availableQuestions);
+    timer();
     getNewQuestion();
 };
 
+timer = () => {
+    t--;
+    timeRemainingText.innerText = t;
+    if (t<=0) {
+        clearInterval(inter)
+    };
+    setTimeout(function() { 
+        timer() 
+    },1000);
+};
+
+
+
 getNewQuestion = () => {
-    if (availableQuestions===0 || questionCounter>= MAX_QUESTIONS) {
+    if (availableQuestions===0 || questionCounter>= MAX_QUESTIONS || timeRemainingText<=0) {
         // Save the score
         localStorage.setItem('mostRecentScore',score);
         //go to the end page
@@ -92,8 +110,12 @@ choices.forEach(choice => {
         let classToApply = "incorrect";
         if (selectedAnswer == currentQuestion.answer) {
             classToApply = 'correct';
+            incrementScore(CORRECT_BONUS);
         } else {
             classToApply = "incorrect";
+            // punish the time if the answer is incorrect by 10secs
+            timeRemainingText.innerText -= 10;
+            t = timeRemainingText.innerText;
         }
         // apply the color according to the answer for 1000 ms before moving to next question
         selectedChoice.parentElement.classList.add(classToApply);
@@ -103,4 +125,8 @@ choices.forEach(choice => {
         },1000);
     });
 });
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
 startGame();
