@@ -27,6 +27,7 @@ Create a timed quiz on JavaScript fundamentals that stores high scores
 
 ## Link to the Deployed App
 
+[Deployed App](https://wangheer2010.github.io/Bootcamp-Code-Quiz-Web-App/)
 
 ## References
 
