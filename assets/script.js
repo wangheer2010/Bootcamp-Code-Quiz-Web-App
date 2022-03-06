@@ -1,5 +1,5 @@
 //set the original time to take
-var t = 1000;
+var t = 10;
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const timeRemainingText = document.getElementById('time-remaining');
@@ -71,7 +71,10 @@ timer = () => {
     t--;
     timeRemainingText.innerText = t;
     if (t<=0) {
-        clearInterval(inter)
+        // Save the score
+        localStorage.setItem('mostRecentScore',score);
+        //go to the end page
+        return window.location.assign('./end.html');
     };
     setTimeout(function() { 
         timer() 
@@ -81,9 +84,9 @@ timer = () => {
 
 
 getNewQuestion = () => {
-    if (availableQuestions===0 || questionCounter>= MAX_QUESTIONS || timeRemainingText<=0) {
+    if (availableQuestions===0 || questionCounter>= MAX_QUESTIONS) {
         // Save the score
-        localStorage.setItem('mostRecentScore',score);
+        localStorage.setItem('mostRecentScore', score);
         //go to the end page
         return window.location.assign('./end.html');
     }
